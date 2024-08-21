@@ -4,7 +4,7 @@ import type {
 } from "@wandelbots/wandelbots-api-client"
 import { flatten, keyBy } from "lodash-es"
 import { makeAutoObservable } from "mobx"
-import { ConnectedMotionGroup, ProgramStateConnection } from "@wandelbots/wandelbots-js"
+import type { ConnectedMotionGroup, ProgramStateConnection } from "@wandelbots/wandelbots-js"
 import type { NovaClient } from "@wandelbots/wandelbots-js"
 
 export type MotionGroupOption = {
@@ -28,7 +28,7 @@ export class WandelApp {
     readonly nova: NovaClient,
     readonly availableControllers: ControllerInstance[],
   ) {
-    ;(window as any).wandelApp = this
+    (window as any).wandelApp = this
     makeAutoObservable(this)
   }
 

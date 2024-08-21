@@ -1,3 +1,4 @@
+import { env } from "../../runtimeEnv"
 import React, { useState } from "react"
 import Image from "next/image"
 import Card from "@mui/material/Card"
@@ -47,7 +48,12 @@ export const WandelAppPlaceholder = () => {
       <AnimatedBackground />
       <Box display="flex" flexDirection="column" height="100vh">
         <Box alignSelf="flex-start" ml={7} mt={5}>
-          <Image src={wandelbots} alt="Wandelbots" width={465 / 3.5} height={76 / 3.5} />
+          <Image
+            src={wandelbots}
+            alt="Wandelbots"
+            width={465 / 3.5}
+            height={76 / 3.5}
+          />
         </Box>
 
         <Box
@@ -57,10 +63,7 @@ export const WandelAppPlaceholder = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <BlurredCard
-            style={{ maxWidth: "500px" }}
-            onClick={() => (window.location.href = "/docs")}
-          >
+          <BlurredCard style={{ maxWidth: "500px" }}>
             <CardContent>
               <Typography
                 variant="body2"
@@ -84,12 +87,7 @@ export const WandelAppPlaceholder = () => {
         <Box pb={5} ml={15} mr={15}>
           <Stack direction="column" spacing={2} justifyContent="space-between">
             <Stack direction="row" spacing={2} justifyContent="space-between">
-              <CustomCard
-                onClick={() =>
-                  (window.location.href =
-                    "https://docs.wandelbots.io/docs/development/")
-                }
-              >
+              <CustomCard>
                 <CardContent>
                   <Typography variant="body2" color="white">
                     <Stack
@@ -138,7 +136,7 @@ export const WandelAppPlaceholder = () => {
 
               <CustomCard
                 onClick={() =>
-                  (window.location.href = `${window.location.protocol}//${window.location.hostname}`)
+                  (window.location.href = `${env.WANDELAPI_BASE_URL}`)
                 }
               >
                 <CardContent>
@@ -154,17 +152,14 @@ export const WandelAppPlaceholder = () => {
                       <span>Manage your Instance or get help:</span>
                       <Link
                         color="#6558FF"
-                        href="https://portal.wandelbots.io/de/docs"
+                        href="https://portal.wandelbots.io/"
                       >
                         Dev Portal
                       </Link>
                       <br />
                       <span>Move robot:</span>
-                      <Link
-                        color="#6558FF"
-                        href={`${window.location.protocol}//${window.location.hostname}`}
-                      >
-                        {window.location.hostname}
+                      <Link color="#6558FF" href={`${env.WANDELAPI_BASE_URL}`}>
+                        {env.WANDELAPI_BASE_URL}
                       </Link>
                     </Stack>
                   </Typography>
