@@ -7,12 +7,14 @@ let nova: NovaClient | null = null
 export const getNovaClient = () => {
   if (!nova) {
     nova = new NovaClient({
-      cellId:  env.CELL_ID ?? "cell",
-      instanceUrl: `${env.WANDELAPI_BASE_URL}`,
-      username: env.NOVA_USERNAME,
-      password: env.NOVA_PASSWORD,
+      instanceUrl:
+        typeof window !== "undefined"
+          ? new URL(env.WANDELAPI_BASE_URL || "", window.location.origin).href
+          : env.WANDELAPI_BASE_URL || "",
+      cellId: env.CELL_ID || "cell",
       baseOptions: {
-        timeout: 60000,
+        // Time out after 30 seconds
+        timeout: 30000,
         ...(env.NOVA_USERNAME && env.NOVA_PASSWORD
           ? ({
               headers: {
