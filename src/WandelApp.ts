@@ -4,7 +4,8 @@ import type {
 } from "@wandelbots/wandelbots-api-client"
 import { flatten, keyBy } from "lodash-es"
 import { makeAutoObservable } from "mobx"
-import type { ConnectedMotionGroup, ProgramStateConnection } from "@wandelbots/wandelbots-js"
+import type { ConnectedMotionGroup } from "@wandelbots/wandelbots-js"
+import { ProgramStateConnection } from "@wandelbots/wandelbots-js"
 import type { NovaClient } from "@wandelbots/wandelbots-js"
 
 export type MotionGroupOption = {

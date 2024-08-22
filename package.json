@@ -28,7 +28,7 @@
     "@react-three/fiber": ">=8.0",
     "@types/lodash-es": "^4.17.12",
     "@wandelbots/wandelbots-api-client": "^24.2.0",
-    "@wandelbots/wandelbots-js": "^1.8.2",
+    "@wandelbots/wandelbots-js": "^1.8.3",
     "@wandelbots/wandelbots-js-react-components": "^1.11.4",
     "eslint-plugin-react-hooks": "^4.6.2",
     "lodash-es": "^4.17.21",
