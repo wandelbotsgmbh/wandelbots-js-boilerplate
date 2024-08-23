@@ -1,9 +1,9 @@
 "use client"
 
 import { ThemeProvider } from "@mui/system"
-import { theme } from "../../theme"
 import { WandelAppLoader } from "./WandelAppLoader"
 import { env as runtimeEnv } from "../../runtimeEnv"
+import { createNovaMuiTheme } from "@wandelbots/wandelbots-js-react-components"
 
 export function ClientLayout({
   env,
@@ -14,6 +14,8 @@ export function ClientLayout({
 }>) {
   console.log("Runtime ENV from server:\n  ", env)
   Object.assign(runtimeEnv, env)
+
+  const theme = createNovaMuiTheme({})
 
   return (
     <ThemeProvider theme={theme}>
