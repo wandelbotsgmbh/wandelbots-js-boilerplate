@@ -24,7 +24,6 @@ export const WandelAppMain = observer(() => {
     <>
       {/* add your code here */}
       <WandelAppPlaceholder />
-      {/* <RobotVisualization /> */}
     </>
   )
 })
