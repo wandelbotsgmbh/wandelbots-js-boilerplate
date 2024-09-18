@@ -17,17 +17,6 @@ export const getNovaClient = () => {
       baseOptions: {
         // Time out after 30 seconds
         timeout: 30000,
-        ...(env.NOVA_USERNAME && env.NOVA_PASSWORD
-          ? ({
-              headers: {
-                Authorization:
-                  "Basic " +
-                  Buffer.from(
-                    env.NOVA_USERNAME + ":" + env.NOVA_PASSWORD,
-                  ).toString("base64"),
-              },
-            } satisfies AxiosRequestConfig)
-          : {}),
       },
     })
   }
