@@ -12,6 +12,8 @@ export const getNovaClient = () => {
           ? new URL(env.WANDELAPI_BASE_URL || "", window.location.origin).href
           : env.WANDELAPI_BASE_URL || "",
       cellId: env.CELL_ID || "cell",
+      username: env.NOVA_USERNAME || "",
+      password: env.NOVA_PASSWORD || "",
       baseOptions: {
         // Time out after 30 seconds
         timeout: 30000,
