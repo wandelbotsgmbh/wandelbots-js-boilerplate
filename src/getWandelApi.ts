@@ -17,7 +17,7 @@ const getSecureUrl = (url: string): string => {
 export const getNovaClient = () => {
   if (!nova) {
     const secureWandelAPIBaseURL = getSecureUrl(env.WANDELAPI_BASE_URL || "");
-    console.log(secureWandelAPIBaseURL)
+
     nova = new NovaClient({
       instanceUrl:
         typeof window !== "undefined"
@@ -26,6 +26,7 @@ export const getNovaClient = () => {
       cellId: env.CELL_ID || "cell",
       username: env.NOVA_USERNAME || "",
       password: env.NOVA_PASSWORD || "",
+      accessToken: env.NOVA_ACCESS_TOKEN || "",
       baseOptions: {
         // Time out after 30 seconds
         timeout: 30000,
